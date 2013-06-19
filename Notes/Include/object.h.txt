@@ -1,0 +1,41 @@
+PyObject
+=====================================
+There's a struct called PyObject that has:
+- a pointer to the previous PyObject in memory
+- a pointer to the next PyObject in memory
+- a reference count
+- a type
+
+PyVarObject
+======================================
+There's a struct called PyVarObject that has:
+- a PyObject
+- a size
+
+NOTE: I'm not really sure what a variable sized object is, per se.
+
+Both of these structs have a set of macros for getting the reference count, getting the type and the size of the variable size object. There are also macros for initializing these objects.
+
+_Py_Identifier
+================================
+Next a struct, called _Py_Identifier, is created to representing identifiers. It has:
+- a pointer to the next identifier
+- the name of the identifier
+- the object being identified
+
+NOTE: This is basically an optimization to keep the amount of memory used up by strings to a minimum (and to limit the scope of those names).
+
+Function Pointers for Numbers, Sequences and Maps
+=======================================================
+At this point, we start describing the functions that each object has. This begins with a list of function pointers.
+
+The structure of numeric types are defined, via PyNumberMethods.
+
+The structure of sequence types are defined, via PySequenceMethods.
+
+The structure of mapping types are defined, via PyMappingMethods.
+
+NOTE: An important thing to bring up is that we shouldn't need to allocate memory for function pointers in our objects. Instead, we use classes with virtual member functions.
+
+Type
+==========================
