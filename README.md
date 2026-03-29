@@ -1,4 +1,4 @@
-> *Archived 2026-03-28*: This project is very old and will no longer be maintained. Since then, my opinions on language design have change greatly. This much is for sure - no one should be basing a new language off Python. 😆
+> *Archived 2026-03-28*: This project is very old and will no longer be maintained. Since then, my opinions on language design have changed greatly. This much is for sure - no one should be basing a new language off Python. 😆
 
 # Unit
 
